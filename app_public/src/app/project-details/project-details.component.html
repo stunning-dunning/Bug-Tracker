@@ -20,7 +20,9 @@
   <div class="col-12">
     <div class="card card-primary review-card">
       <div class="card-block">
-        <button (click)="formVisible=true" class="btn btn-primary float-right">Add bug</button>
+        <button (click)="formVisible=true" class="btn btn-primary float-right">Add bug
+          
+        </button>
         <h2 class="card-title">Bug List</h2>
         <div *ngIf="formVisible">
           <form (ngSubmit)="onBugSubmit()">
