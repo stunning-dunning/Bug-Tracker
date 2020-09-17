@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-12 col-md-6">
+    <p>{{ project.name }}</p>
+    <!-- <div class="card card-primary">
+      <div class="card-block">
+      </div>
+    </div> -->
+    <div class="card card-primary">
+      <div class="card-block">
+        <h2 class="card-title">Project Description</h2>
+        <span class="badge badge-warning">
+          <i class="fa fa-check"></i>
+          {{project.description}}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="card card-primary review-card">
+      <div class="card-block">
+        <button (click)="formVisible=true" class="btn btn-primary float-right">Add bug</button>
+        <h2 class="card-title">Bug List</h2>
+        <div *ngIf="formVisible">
+          <form (ngSubmit)="onDescriptionSubmit()">
+            <hr>
+            <h4>Add your bug</h4>
+            <div *ngIf="formError" class="alert alert-danger" role="alert">
+              {{ formError }}
+            </div>
+            <div class="form-group row">
+              <label for="name" class="col-sm-2 col-form-label">Owner</label>
+              <div class="col-sm-10">
+                <input [(ngModel)]="newBug.owner" id="name" name="name" required="required" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="description" class="col-sm-2 col-form-label">Description</label>
+              <div class="col-sm-10">
+                <textarea [(ngModel)]="newBug.description" name="review" id="review" rows="5"
+                  class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary float-right" style="margin-left:15px">Submit bug</button>
+                <button (click)="formVisible=false" type="button" class="btn btn-default float-right">Cancel</button>
+              </div>
+            </div>
+            <hr>
+          </form>
+        </div>
+        <div *ngFor="let bug of project.bugs | mostRecentFirst" class="row bug">
+          <div class="col-12 no-gutters review-header">
+            <span class="bugOwner">{{ bug.owner }}</span><br>
+            <span class="bugOwner">{{ bug.status }}</span><br>
+            <span class="bugOwner">{{ bug.description }}</span><br>
+            <small class="bugTimestamp">{{ bug.createdOn | date : 'd MMMM yyyy'}}</small>
+          </div>
+          <div class="col-12">
+            <!-- <p [innerHTML]="bug.description | htmlLineBreaks"></p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
