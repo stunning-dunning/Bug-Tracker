@@ -28,7 +28,7 @@ export class DetailsPageComponent implements OnInit {
       )
       .subscribe((newProject: Project) => {
         this.newProject = newProject;
-        console.log("description", newProject.description);
+        // console.log("description", newProject.description);
         this.pageContent.header.title = newProject.name;
       });
   }

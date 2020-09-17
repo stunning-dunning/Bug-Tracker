@@ -1,11 +1,13 @@
-@import url("//fonts.googleapis.com/css?family=Barlow|Cabin:400,700");
+@import url("//fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap");
+
+/* @import url("//fonts.googleapis.com/css?family=Lobster|Cabin:400,700"); */
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Barlow', cursive;
+  font-family: 'Rubik', sans-serif;
 }
 
 legend {
-  font-family: 'Barlow', cursive;
+  font-family: 'Rubik', sans-serif;
 }
 
 .navbar {
@@ -14,7 +16,7 @@ legend {
 }
 
 .navbar-light .navbar-brand {
-  font-family: 'Barlow', cursive;
+  font-family: 'Rubik', sans-serif;
   color: #fff;
 }
 
@@ -32,7 +34,7 @@ legend {
 }
 
 .navbar-light .navbar-nav .nav-link:hover  {
-  color: black;
+  color: #fff;
 }
 
 .card {
@@ -41,7 +43,7 @@ legend {
 }
 
 .card-primary {
-  border-color: #FCDB1E;
+  border-color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
@@ -81,7 +83,7 @@ h4 small {
 }
 
 h1 small {
-  color: #aaa;
+  color: #dedede;
 }
 
 .address {
