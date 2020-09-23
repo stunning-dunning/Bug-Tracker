@@ -14,6 +14,7 @@ import { FrameworkComponent } from './framework/framework.component';
 import { MostRecentFirstPipe } from './most-recent-first.pipe';
 import { HtmlLineBreaksPipe } from './html-line-breaks.pipe';
 import { DetailsPageComponent } from './details-page/details-page.component';
+import { OpenBugsComponent } from './open-bugs/open-bugs.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DetailsPageComponent } from './details-page/details-page.component';
     FrameworkComponent,
     MostRecentFirstPipe,
     HtmlLineBreaksPipe,
-    DetailsPageComponent
+    DetailsPageComponent,
+    OpenBugsComponent
   ],
   imports: [
     BrowserModule,

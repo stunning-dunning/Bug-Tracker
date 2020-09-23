@@ -14,7 +14,7 @@ export class ProjectDetailsComponent implements OnInit {
   public newBug: Bug = {
     owner: '',
     description: '',
-    status: ''
+    status: 'open'
   };
 
   public formVisible: boolean = false;
@@ -33,6 +33,10 @@ export class ProjectDetailsComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  public onChange(val){
+    console.log("val is:", val);
   }
 
   public onBugSubmit(): void {
@@ -56,6 +60,6 @@ export class ProjectDetailsComponent implements OnInit {
     this.formVisible = false;
     this.newBug.owner = '';
     this.newBug.description = '';
-    this.newBug.status = '';
+    this.newBug.status = 'open';
   }
 }

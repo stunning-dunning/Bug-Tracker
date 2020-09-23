@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from '../about/about.component';
 import { HomepageComponent } from '../homepage/homepage.component';
 import { DetailsPageComponent } from '../details-page/details-page.component';
+import { OpenBugsComponent } from '../open-bugs/open-bugs.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: 'open-bugs',
+    component: OpenBugsComponent
   },
   {
     path: 'project/:projectId',
