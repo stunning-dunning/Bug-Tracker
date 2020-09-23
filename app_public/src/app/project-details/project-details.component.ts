@@ -9,13 +9,15 @@ import { ProjectDataService } from '../project-data.service';
 })
 export class ProjectDetailsComponent implements OnInit {
 
-  @Input() project: Project;
-
   public newBug: Bug = {
     owner: '',
     description: '',
-    status: 'open'
+    status: 'Open'
   };
+
+  @Input() project: Project;
+
+ 
 
   public formVisible: boolean = false;
   public formError: string;
