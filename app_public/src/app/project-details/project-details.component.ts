@@ -12,7 +12,7 @@ export class ProjectDetailsComponent implements OnInit {
   public newBug: Bug = {
     owner: '',
     description: '',
-    status: 'Open'
+    status: 'Open '
   };
 
   @Input() project: Project;
