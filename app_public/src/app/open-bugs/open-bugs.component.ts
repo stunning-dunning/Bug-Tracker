@@ -1,4 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectDataService } from '../project-data.service';
+
+export class Project {
+  _id: string;
+  name: string;
+  owner: string;
+  description: string[];
+}
+
+export class Bug {
+  owner: string;
+  description: string;
+  status: string;
+  severity: string;
+}
 
 @Component({
   selector: 'app-open-bugs',
@@ -7,9 +22,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OpenBugsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private projectDataService: ProjectDataService) { }
+
+  public projects: Project[]
+  
+  public bugs: Bug[]
+
+  public message: string;
 
   ngOnInit(): void {
+    this.getProjects();
   }
 
   public pageContent = {
@@ -19,4 +42,30 @@ export class OpenBugsComponent implements OnInit {
     },
     content : ''
   };
+
+  private getBug(): void {
+    this.message = 'Getting your project...';
+    this.projectDataService.getBugs()
+      .then(foundBugs => {this.bugs = foundBugs})
+    
+  }
+
+  private getProjects(): void {
+    this.message = 'Searching for projects';
+    this.projectDataService
+      .getProjects()
+        .then(foundProjects => {
+          this.message = foundProjects.length > 0 ? '' : 'No projects found';
+          this.projects = foundProjects;
+        });
+  }
+
+  private showError(error: any): void {
+    this.message = error.message;
+  }
+
+  private noBug(): void {
+    this.message = 'Geolocation not supported by this browser';
+  }
+
 }

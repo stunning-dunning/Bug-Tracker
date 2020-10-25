@@ -4,9 +4,9 @@
       <h4>
         <a routerLink="/project/{{project._id}}">{{project.name}}</a>
       </h4>
-      <p class="address">{{project.owner}}</p>
+      <label class="col-sm-2 col-form-label">Owner: </label><span class="address">{{project.owner}}</span>
       <div class="descriptions">
-        <span class="badge badge-warning">{{project.description}}</span>
+        <label class="col-sm-2 col-form-label">Description: </label><span class="badge badge-warning background">{{project.description}}</span>
       </div>
     </div>
   </div>

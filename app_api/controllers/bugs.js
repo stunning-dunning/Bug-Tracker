@@ -7,11 +7,12 @@ const doAddBug = (req, res, project) => {
         .status(404)
         .json({"message": "Project not found"});
     } else {
-      const {owner, description, status} = req.body;
+      const {owner, description, status, severity} = req.body;
       project.bugs.push({
         owner,
         description,
-        status
+        status,
+        severity
       });
       project.save((err, project) => {
         if (err) {
@@ -94,6 +95,8 @@ const doAddBug = (req, res, project) => {
   };
 
   const bugsUpdateOne = (req, res) => {
+    console.log("in bugsupdateone method");
+    console.log("req body", req.body);
     if (!req.params.projectid || !req.params.bugid) {
       return res
         .status(404)
@@ -125,10 +128,11 @@ const doAddBug = (req, res, project) => {
                 "message": "Bug not found"
               });
           } else {
-            thisBug.name = req.body.name;
-            thisBug.owner = req.body.owner;
-            thisBug.description = req.body.description;
-            thisBug.status = req.body.status;
+            thisBug.name = req.body.bug.name;
+            thisBug.owner = req.body.bug.owner;
+            thisBug.description = req.body.bug.description;
+            thisBug.status = req.body.bug.status;
+            thisBug.severity = req.body.bug.severity;
             project.save((err, project) => {
               if (err) {
                 res

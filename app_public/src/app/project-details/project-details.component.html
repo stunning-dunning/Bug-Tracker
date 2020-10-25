@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row edit">
   <div class="col-12 col-md-6">
     <p>{{ project.name }}</p>
     <!-- <div class="card card-primary">
@@ -10,7 +10,7 @@
         <div class="card card-primary">
           <div class="card-block">
             <h2 class="card-title">Project Description</h2>
-            <span class="badge badge-warning">
+            <span class="badge badge-warning black">
               <i class="fa fa-check"></i>
               {{project.description}}
             </span>
@@ -34,7 +34,7 @@
               {{ formError }}
             </div>
             <div class="form-group row">
-              <label for="name" class="col-sm-2 col-form-label">Owner</label>
+              <label for="name" class="col-sm-2 col-form-label">Assigned to</label>
               <div class="col-sm-10">
                 <input [(ngModel)]="newBug.owner" id="name" name="name" required="required" class="form-control">
               </div>
@@ -46,29 +46,22 @@
                   class="form-control"></textarea>
               </div>
             </div>
-            <!-- <div class="radio">
-              <input type="radio" id="status" name="status" [(ngModel)="newBug.status" [value]="open" />
-              <label for="status">open</label>    
-            </div> -->
-
-
-
             <div class="form-group row">
               <label for="status" class="col-sm-2 col-form-label">Status</label>
-              <div class="col-sm-10 col-md-2">
-                <select [(ngModel)]="newBug.status" id="status" name="status" class="form-control">
-                  <option [ngValue]="open">open</option>
-                  <option [ngValue]="inprogress">inprogress</option>
-                  <option [ngValue]="close">close</option>
-                </select>
-                {{newBug.owner}}{{newBug.status}}{{newBug.description}}
+              <div class="col-sm-10">
+                <input [(ngModel)]="newBug.status" id="status" name="status" required="required" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="severity" class="col-sm-2 col-form-label">Severity</label>
+              <div class="col-sm-10">
+                <input [(ngModel)]="newBug.severity" id="severity" name="severity" required="required" class="form-control">
               </div>
             </div>
             <div class="form-group row">
               <div class="col-12">
                 <button type="submit" class="btn btn-primary float-right" style="margin-left:15px">Submit bug</button>
                 <div class="col-sm-10 col-md-3"></div>
-
                 <button (click)="formVisible=false" type="button" class="btn btn-default float-right">Cancel</button>
               </div>
             </div>
@@ -76,15 +69,60 @@
           </form>
         </div>
         <div *ngFor="let bug of project.bugs | mostRecentFirst" class="row bug">
-          <div class="col-12 no-gutters review-header">
-            <span class="bugOwner">{{ bug.owner }}</span><br>
-            <span class="bugOwner">{{ bug.status }}</span><br>
-            <span class="bugOwner">{{ bug.description }}</span><br>
-            <small class="bugTimestamp">{{ bug.createdOn | date : 'd MMMM yyyy'}}</small>
+          <div class="col-12 no-gutters review-header background">
+            <label class="col-sm-2 col-form-label">Owner: </label><span class="bugOwner">{{ bug.owner }}</span>
+            <button (click)="getDetails(bug._id)" type="button" class="btn btn-default float-right update-again">Update Bug</button><br>
+            <label class="col-sm-2 col-form-label">Status: </label><span class="bugOwner">{{ bug.status }}</span><br>
+            <label class="col-sm-2 col-form-label">Description: </label><span class="bugOwner">{{ bug.description }}</span><br>
+            <label class="col-sm-2 col-form-label">Severity: </label><span class="bugOwner">{{ bug.severity }}</span><br>
+            <label class="col-sm-2 col-form-label">Created On: </label><small class="bugTimestamp">{{ bug.createdOn | date : 'd MMMM yyyy'}}</small>
+          
           </div>
           <div class="col-12">
             <!-- <p [innerHTML]="bug.description | htmlLineBreaks"></p> -->
           </div>
+        </div>
+        <div class="updateForm" *ngIf="formVisible2">
+          <form (ngSubmit)="updateBug()">
+            <hr>
+            <h4>Add your bug</h4>
+            <div *ngIf="formError" class="alert alert-danger" role="alert">
+              {{ formError }}
+            </div>
+            <div class="form-group row">
+              <label for="n_name" class="col-sm-2 col-form-label">Assigned to</label>
+              <div class="col-sm-10">
+                <input [(ngModel)]="updateNewBug.bug.owner" id="name" name="n_n_name" required="required" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="n_description" class="col-sm-2 col-form-label">Description</label>
+              <div class="col-sm-10">
+                <textarea [(ngModel)]="updateNewBug.bug.description" name="n_review" id="n_review" rows="5"
+                  class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="n_status" class="col-sm-2 col-form-label">Status</label>
+              <div class="col-sm-10">
+                <input [(ngModel)]="updateNewBug.bug.status" id="n_status" name="n_status" required="required" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="n_severity" class="col-sm-2 col-form-label">Severity</label>
+              <div class="col-sm-10">
+                <input [(ngModel)]="updateNewBug.bug.severity" id="n_severity" name="n_severity" required="required" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary float-right update" style="margin-left:15px">Update bug</button>
+                <div class="col-sm-10 col-md-3"></div>
+                <button (click)="formVisible2=false" type="button" class="btn btn-default float-right">Cancel</button>
+              </div>
+            </div>
+            <hr>
+          </form>
         </div>
       </div>
     </div>

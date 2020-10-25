@@ -5,14 +5,16 @@
       <button type="button" data-toggle="collapse" data-target="#navbarMain" class="navbar-toggler">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div id="navbarMain" class="navbar-collapse">
+      <div id="navbarMain" class="navbar-collapse height-fix">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a routerLink="open-bugs" routerLinkActive="active" class="nav-link">Open Bugs</a>
+          <li class="nav-item add-anchor">
+            <a routerLink="add-project" routerLinkActive="active" class="nav-link">
+              <img src="../../assets/images/add.png"></a>
+              <span class="add">Add a project</span>
            </li>
-           <li class="nav-item">
-            <img src="../../assets/images/add.png">
-          </li>
+           <!-- <li class="nav-item">
+            <a routerLink="open-bugs" routerLinkActive="active" class="nav-link">Open Bugs</a> 
+           </li> -->
           <li class="nav-item">
             <a routerLink="about" routerLinkActive="active" class="nav-link">About</a>
           </li>

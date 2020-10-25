@@ -6,6 +6,7 @@ import { AboutComponent } from '../about/about.component';
 import { HomepageComponent } from '../homepage/homepage.component';
 import { DetailsPageComponent } from '../details-page/details-page.component';
 import { OpenBugsComponent } from '../open-bugs/open-bugs.component';
+import { AddProjectComponent } from '../add-project/add-project.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'open-bugs',
     component: OpenBugsComponent
+  },
+  {
+    path: 'add-project',
+    component: AddProjectComponent
   },
   {
     path: 'project/:projectId',

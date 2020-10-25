@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,6 +16,7 @@ import { MostRecentFirstPipe } from './most-recent-first.pipe';
 import { HtmlLineBreaksPipe } from './html-line-breaks.pipe';
 import { DetailsPageComponent } from './details-page/details-page.component';
 import { OpenBugsComponent } from './open-bugs/open-bugs.component';
+import { AddProjectComponent } from './add-project/add-project.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +29,12 @@ import { OpenBugsComponent } from './open-bugs/open-bugs.component';
     MostRecentFirstPipe,
     HtmlLineBreaksPipe,
     DetailsPageComponent,
-    OpenBugsComponent
+    OpenBugsComponent,
+    AddProjectComponent,
   ],
   imports: [
     BrowserModule,
+    NgSelectModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

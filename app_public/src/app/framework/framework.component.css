@@ -1,4 +1,16 @@
 .bug-image {
-    width: 100px;
-    height: 100px;
+    width: 30px;
+    height: 30px;
+}
+
+.add{
+    visibility: hidden;
+}
+
+.add-anchor:hover .add{
+    visibility: visible;
+}
+
+.height-fix{
+    height : 60px;
 }

@@ -1,0 +1,46 @@
+.body {
+    color: yellow;
+    background-color: yellowgreen
+}
+
+.card card-primary {
+    color: tomato;
+    background-color: whitesmoke;
+    margin-right: 15mm;
+}
+
+.edit {
+    width: 1513px;
+}
+
+.update .update:hover {
+    background-color: #3b5998;
+    border-color: #ffffff;
+}
+
+.update:hover {
+    color: #fff;
+    background-color: #cc0d0d;
+}
+
+.update-again {
+    background-color: #3b5998;
+    border-color: #ffffff;
+}
+
+.update-again:hover {
+    color: #fff;
+    background-color: #cc0d0d;
+}
+
+.background {
+    background-color: #3b5998;
+}
+
+.letter {
+    color: #cc0d0d;
+}
+
+.black {
+    color: rgb(36, 29, 36);
+}

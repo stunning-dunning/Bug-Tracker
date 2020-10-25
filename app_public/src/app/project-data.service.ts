@@ -12,7 +12,7 @@ export class ProjectDataService {
   private apiBaseUrl = 'http://localhost:3000/api';
   //private apiBaseUrl = 'https://vast-brook-9050.herokuapp.com/api'  //use for production
 
-  public addProjectById(projectId: string, formData:Project): Promise<Project> {
+  public addProjectById(formData:Project): Promise<Project> {
     const url: string = `${this.apiBaseUrl}/projects`;
     return this.http
       .post(url, formData)
@@ -75,7 +75,16 @@ export class ProjectDataService {
       .catch(this.handleError);
   }
 
-  public getBugById(projectId: string, formData: Bug, bugId:string): Promise<Bug> {
+  public updateBugStatus(projectId: string, bugId: string, formData: Bug): Promise<Bug>{
+    const url: string = `${this.apiBaseUrl}/projects/${projectId}/bugs/${bugId}`;
+    return this.http
+      .put(url, formData)
+      .toPromise()
+      .then(response => response as Bug)
+      .catch(this.handleError);
+  }
+
+  public getBugById(projectId: string, bugId:string): Promise<Bug> {
     const url: string = `${this.apiBaseUrl}/projects/${projectId}/bugs/${bugId}`;
     return this.http
       .get(url)
@@ -85,6 +94,8 @@ export class ProjectDataService {
   }
 
   public updateBugById(projectId: string, formData: Bug, bugId:string): Promise<Bug> {
+    console.log("project id, bug id", projectId, bugId);
+    console.log("formdata", formData);
     const url: string = `${this.apiBaseUrl}/projects/${projectId}/bugs/${bugId}`;
     return this.http
       .put(url, formData)

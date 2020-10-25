@@ -15,6 +15,10 @@ const bugSchema = new mongoose.Schema({
   status: {
       type: String,
       required: true
+  },
+  severity: {
+    type: String,
+    required: true
   }
 });
 const projectSchema = new mongoose.Schema({
