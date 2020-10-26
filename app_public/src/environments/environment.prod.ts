@@ -1,4 +1,4 @@
 export const environment = {
-  apiBaseUrl: 'http://datamend.herokuapp.com/api',
+  apiBaseUrl: 'https://datamend.herokuapp.com/api',
   production: true
 };
