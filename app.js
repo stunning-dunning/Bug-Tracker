@@ -6,7 +6,7 @@ const logger = require('morgan');
 const favicon = require('serve-favicon');
 require('./app_api/models/db');
 
-const indexRouter = require('./app_api/routes/index');
+const apiRouter = require('./app_api/routes/index');
 //const usersRouter = require('./app_server/routes/users');
 const { constants } = require('buffer');
 
